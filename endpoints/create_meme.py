@@ -5,7 +5,6 @@ import json
 class CreateMemeNew:
 
     token = None
-    id = None
     text = None
     status = None
     url_meme = None
@@ -22,8 +21,8 @@ class CreateMemeNew:
         url = "http://okulik.site:52355/meme"
         payload = json.dumps({
             "text": "Irina's meme",
-            "url": "https://i0.wp.com/hyperallergic-newspack.s3.amazonaws.com/ \
-            uploads/2023/04/barbie-lead.jpg?resize=780%2C900&quality=100&ssl=1",
+            "url": "https://i0.wp.com/hyperallergic-newspack.s3.amazonaws.com"
+                   "/uploads/2023/04/barbie-lead.jpg?resize=780%2C900&quality=100&ssl=1",
             "tags": [
                 "fun",
                 "movie",
@@ -38,7 +37,6 @@ class CreateMemeNew:
         response = requests.request("POST", url, headers=headers, data=payload)
         data = response.json()
         self.status = response.status_code
-        self.id = data['id']
         self.text = data['text']
         self.url_meme = data['url']
         return response
@@ -50,5 +48,5 @@ class CreateMemeNew:
         return self.text == "Irina's meme"
 
     def check_url_meme_is_ok(self):
-        return self.url_meme == "https://i0.wp.com/hyperallergic-newspack.s3.amazonaws.com/uploads/2023/04" \
-                                "/barbie-lead./jpg?resize=780%2C900&quality=100&ssl=1"
+        return self.url_meme == "https://i0.wp.com/hyperallergic-newspack.s3.amazonaws." \
+                                "com/uploads/2023/04/barbie-lead.jpg?resize=780%2C900&quality=100&ssl=1"
