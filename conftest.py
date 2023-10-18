@@ -2,7 +2,7 @@ import pytest
 import requests
 import json
 from endpoints.create_meme import CreateMemeNew
-from endpoints.memes_list import GetMemeIds
+from endpoints.change_meme import ChangeMeme
 
 
 @pytest.fixture()
@@ -29,5 +29,5 @@ def meme_creator():
     return CreateMemeNew()
 
 @pytest.fixture()
-def meme_id():
-    return GetMemeIds()
+def meme_changer():
+    return ChangeMeme()
