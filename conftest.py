@@ -3,6 +3,7 @@ import requests
 import json
 from endpoints.create_meme import CreateMemeNew
 from endpoints.change_meme import ChangeMeme
+from endpoints.delete_meme import DeleteMeme
 
 
 @pytest.fixture()
@@ -31,3 +32,7 @@ def meme_creator():
 @pytest.fixture()
 def meme_changer():
     return ChangeMeme()
+
+@pytest.fixture()
+def meme_remover():
+    return DeleteMeme()
