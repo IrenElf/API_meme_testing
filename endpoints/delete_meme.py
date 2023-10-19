@@ -27,7 +27,7 @@ class DeleteMeme:
 
         return response
 
-    def delete_meme(self, mem_id, url_meme, text_new, tags, info_new, user_token):
+    def delete_meme(self, mem_id, user_token):
         url = "http://okulik.site:52355/meme/" + mem_id
 
         payload = {}

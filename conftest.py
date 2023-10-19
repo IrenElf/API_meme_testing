@@ -17,15 +17,6 @@ def user_token():
     return token
 
 @pytest.fixture()
-def get_memes_id(user_token):
-    url = "http://okulik.site:52355/meme"
-
-    headers = {'Authorization': user_token}
-    response = requests.request("GET", url, headers=headers)
-    data = response.json()
-    return data
-
-@pytest.fixture()
 def meme_creator():
     return CreateMemeNew()
 

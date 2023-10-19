@@ -9,6 +9,7 @@ class CreateMemeNew:
     url_meme = None
     info = None
     tags = None
+    mem_id = None
 
     def create_new_meme(self, url_meme, text, tags, info, user_token):
         url = "http://okulik.site:52355/meme"
@@ -24,6 +25,7 @@ class CreateMemeNew:
         self.status = response.status_code
         self.text = data['text']
         self.url_meme = data['url']
+        self.mem_id = data['id']
 
         return response
 
@@ -41,3 +43,11 @@ class CreateMemeNew:
 
     def check_meme_tags(self, tags):
         return self.tags == tags
+
+    def delete_test_meme(self, mem_id, user_token):
+        url = "http://okulik.site:52355/meme/" + mem_id
+
+        payload = {}
+        headers = {'Authorization': user_token}
+        response = requests.request("DELETE", url, headers=headers, data=payload)
+        return response

@@ -47,3 +47,11 @@ class ChangeMeme:
 
     def check_change_meme_info(self, info_new):
         return self.info == info_new
+
+    def delete_test_meme(self, mem_id, user_token):
+        url = "http://okulik.site:52355/meme/" + mem_id
+
+        payload = {}
+        headers = {'Authorization': user_token}
+        response = requests.request("DELETE", url, headers=headers, data=payload)
+        return response
