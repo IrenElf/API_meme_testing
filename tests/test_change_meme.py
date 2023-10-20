@@ -7,5 +7,7 @@ def test_change_meme(meme_changer, user_token):
     info = {"text1": "Barbie movie", "text2": "meme 2023"}
     text_new = "New movie meme"
     info_new = {"text1": "Barbie movie_new", "text2": "meme 2023_new"}
+    user_token = user_token
+    meme_changer.create_new_meme(url_meme, text, tags, info, user_token)
     meme_changer.check_change_meme_info(info_new)
     meme_changer.check_change_meme_text(text_new)

@@ -5,6 +5,8 @@ def test_create_new_meme(meme_creator, user_token):
     text = "Irina's meme"
     tags = ["fun", "movie", "happy"]
     info = {"text1": "Barbie movie", "text2": "meme 2023"}
+    user_token = user_token
+    meme_creator.create_new_meme(url_meme, text, tags, info, user_token)
     meme_creator.check_responce_status_is_ok()
     meme_creator.check_meme_text(text)
     meme_creator.check_url_meme_is_ok(url_meme)

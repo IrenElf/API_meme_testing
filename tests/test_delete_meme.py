@@ -5,5 +5,6 @@ def test_delete_meme(meme_remover, user_token):
     text = "Irina's meme"
     tags = ["fun", "movie", "happy"]
     info = {"text1": "Barbie movie", "text2": "meme 2023"}
-
+    user_token = user_token
+    meme_remover.create_new_meme(url_meme, text, tags, info, user_token)
     meme_remover.check_delete_meme_is_ok()
